@@ -27,5 +27,5 @@ __It's my Web-Hacking-Study with DREAMHACK!__
 <br/>
 <br/>
 <p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=dndlzm123&show_icons=true&theme=gruvbox&hide=["issues"]">
+<img src="https://github-readme-stats.vercel.app/api?username=Jinseop-Sim&show_icons=true&theme=gruvbox&hide=["issues"]">
 </p>
