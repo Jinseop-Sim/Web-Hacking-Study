@@ -1,0 +1,118 @@
+# Introduction Of Web
+---
+
+### Component of web
+ - Web browser : 웹에 접속하기 위한 소프트웨어
+ - Web Resource : 웹 상에 존재하는 모든 콘텐츠(HTML, JS, PDF, PNG etc.)
+ - URI(Uniform Resource Identifier) : 리소스를 식별하기 위한 식별자.
+ - HTTP(HyperText Transfer Protocol) : 웹을 이용하기 위한 Protocol(통신규약)
+ - HTTPS : HTTP의 암호화된 통신규약
+ - Cookie : Web browser 에 저장되는 데이터.
+ - Session : Server 에 저장되는 데이터.
+ - Domain name : 컴퓨터를 식별하는 이름(e.g. www.naver.com).
+ - Server : 사용자(Client)에게 서비스를 제공하는 컴퓨터, HTTP를 이용하여 통신.
+ - Application : 서버에서 설정한 특정 기능들을 수행하는 소프트웨어
+ - DataBase(DB) : 데이터의 저장소.
+ 
+### Web Resource
+  >http://dreamhack.io/index.html 이라는 주소에서, index.html 부분을 Web Resource 라고 한다.  
+ - HTML(HyperText Markup Language)  
+	웹 문서의 뼈대를 구현하기 위한 마크업 언어.
+ - CSS(Cascading Style Sheets)  
+	HTML의 표시 방법을 정의 해주는 스타일 시트.
+ - JS(Java Script)  
+	HTML과 CSS는 화면에 출력되는 뼈대, JS는 화면의 동작을 담당.
+  
+### URI(URL)
+  >Uniform Resource Identifier, 리소스의 식별자.  
+   우리가 흔히 아는 URL은, 리소스의 위치를 식별하기 위한 식별자. (URI의 하위 개념) 
+ 
+    http://example.com:80/path?search=1#fragment
+	
+  - Scheme : 웹 서버에 접속 할때 어떤 Protocol을 이용할 것인가?
+  - Host : example.com이 Host가 된다.
+  - Port : 접속할 웹 서버의 포트를 담고있다.
+  - Path : 접속할 웹 서버의 경로, /path의 위치에 해당한다.
+  - Query : 웹 서버에 전달하는 매개변수에 해당, ?search=1의 형식이다.
+  - Fragment : 서브 리소스를 식별하기 위한 정보에 해당, #fragment의 형식이다.
+  
+### Encoding
+  >Encoding이란, 보안을 위하여, 문자 또는 정보를 원래 형태와는 다르게 처리하는 것.
+ - URL encoding  
+   URI 내에서, 구분자로 사용되는 ?, #, &, = 문자들을 인코딩하는 것
+   원리는, ASCII 테이블에서 매칭되는 HEX값 앞에 %문자를 붙이는 것.
+  
+   ? = %3F / # = %23 / & = %26 / = = %3D
+   
+ - HTML entity Encoding
+   HTML 문서 내에서, HTML에서 쓰는 태그로 인식하지 못하게 암호화 하는 것.
+   원리는, ASCII 테이블에서 매칭되는 HEX 값 앞에 &#x를 붙이거나, 지정된 Entiity name 사용.
+   
+   & &amp; &#x26 / < &lt; &#x3C; / > &gt; &#x3E;
+
+### HTTP(HyperText Transfer Protocol)
+  >웹 브라우저를 사용할 때의 통신규약(Scheme 부분에 해당).  
+  TCP / TLS를 사용해 통신하며, 기본 포트로 80(HTTP), 443(HTTPS) 사용한다.  
+  Request(요청), Response(응답) 두 부분으로 나누어진다.
+  
+### HTTP Request
+  >서버에 대한 client의 요청.
+ - Method : 서버에 요청 시, 수행하고자 하는 동작을 나타낸다.(GET, POST, OPTION, PATCH 등..)
+ - Path : 사용자가 서버에 요청하는 웹 리소스의 경로(/index.html 등..)
+ - Version : 현재 사용 중인 HTTP의 버전.
+ - Header : 서버에 추가 정보를 전달한다.
+   * Host : 데이터를 보내는 서버의 주소.(domain name)
+   * Cookie : 사용자를 식별하기 위해 사용하는 데이터, 웹 브라우저에 저장된다.
+   * User-Agent : 사용자가 사용 중인 프로그램의 정보를 나타낸다.(Mozilla/5.0, Chrome/79.0.3945.88, Safari/537.36 등..)
+   * Referer : 페이지 이동 시 이전 URI의 정보를 나타낸다.(Redirect)
+   * Content-Type : 사용자가 전달하는 데이터의 처리 방식과 형식. 일치해야 정상적인 통신이 이루어짐.
+ - Body : 사용자가 직접 입력한 데이터를 담는 부분.
+ 
+### HTTP Response
+ >Client의 요청에 대한 서버의 응답.
+ - Version : 위와 동일.
+ - Status code : 사용자의 요청에 대한, 서버의 처리 결과.(404 Not Found, 403 Forbidden, 200 OK 등..)
+ - Header : 사용자가 상호작용하기 위한 데이터를 담는 부분.
+   * Content-Type : Request와 동일.
+   * Content-Length : 응답해주는 데이터의 길이.
+   * Server : 사용자가 사용중인 SW의 정보.(Apache/2.4.29 등..)
+   * Allow : 허용되는 Method의 목록
+   * Location : 300번 영역(Redirect) 응답 시, 변경된 리소스의 주소를 나타낸다.
+   * Set-Cookie : 사용자에게 쿠키 발급 시 사용.
+   
+### Cookie
+>HTTP는 Request - Response 쌍이 독립적으로 통신하는 CONNECTIONLESS, STATELESS 프로토콜이다.
+  - CONNECTIONLESS : 하나의 요청에, 하나의 응답 => 연결 종료, 계속 연결 시 서버 부하가 올 수 있어 생긴 특성.   
+  ====> 하지만 HTTP/1.1 부터 성능 상향으로, Keep-Alive를 통해 일정 시간 동안만 연결을 맺고 있는다.
+  - STATELESS : 네트워크가 연결을 끊을 때, 상태를 유지 하지 않는 특성. 요청마다 새로운 커넥션이 생겨, 인증을 반복해야 한다는 것이 단점.   
+  ====> 이를 보안하기 위해 나온 것이 Cookie.
+  - Cookie : HTTP Response Header의 Set-Cookie나, Javascript의 document.cookie를 통해 웹 브라우저에 저장된다.   
+  ====> key = value; 형태의 데이터를 통해 인증을 진행. 그러나 이 value 값만 알면 쉽게 정보를 탈취 당할 수가 있다.
+             
+### Session
+>Cookie의 탈취가 용이하다는 단점을 보완하기 위해 나온, Session.  서버에 유추할 수 없는 랜덤한 문자열 키를 'Session'으로 저장한다.  
+인증 시, Cookie가 일치해도 Session이 일치하지 않는다면, 접근 불가능!
+
+### Web server application
+
+ - Web Server : 사용자의 HTTP 요청을 해석하여 처리, 응답해주는 역할을 한다.(nginx, Apache, Tomcat 등등..)
+                사용자의 요청이 .html 확장자라면, html을 반환, .php라면 php 엔진으로 처리.
+ - Web Application : 사용자의 요청을 동적으로 처리하기 위한 Application.
+                     사용자의 요청을 동적으로 처리하기 위해 특정 언어를 이용한다.(PHP, NodeJS, Python, Java 등..)
+					 이를 편하게 해주는 프레임워크도 존재한다.(Python - django, flask / Java - Spring)
+ - DBMS(DataBase Management System) : 데이터 베이스 내의 정보를 다루기 용이하게 해주는 서버 Application(MySQL, MS-SQL 등..)
+                                     ====> 보안에 각별히 주의해야 한다!  
+                                     
+<p align="center">
+<img src="https://user-images.githubusercontent.com/71700079/104813064-15b5eb00-584a-11eb-8a40-e241fc6b6a08.png">
+</p>
+
+>Web Server Application의 작동 순서.
+  
+### Web Hacking Attack Vector
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/71700079/104813061-13539100-584a-11eb-9459-1d23275cb934.png">
+</p>
+
+>어느 쪽을 공격하느냐에 따라 Client-side / Server-side로 갈린다.
