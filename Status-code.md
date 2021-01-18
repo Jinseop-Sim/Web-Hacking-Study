@@ -1,0 +1,25 @@
+# Status code
+---
+- 200번 영역
+  - 200 OK : 요청이 성공적으로 되었습니다.
+  - 201 Created : 성공적인 요청의 결과로, 새 리소스가 생성되었습니다. 일반적으로 __PUT__ , __POST__ 메소드의 결과.  
+  
+- 300번 영역
+  - 301 Moved Permanently : 요청한 리소스의 URI가 변경되었습니다.
+  - 302 Found : 요청한 리소스의 URI가 __일시적으로__ 변경되었습니다. 하지만, 향후의 요청도 동일한 URI로 해야합니다.
+  - 308 Permanently Redirect : 301과 동일한 의미이지만, 반드시 다음 요청도 같은 메소드를 사용해야한다는 점이 다릅니다.  
+- 400번 영역
+  - 400 Bad request : 잘못된 구조 및 문법으로 요청을 이해할 수 없습니다.
+  - 401 Unauthorized : 인증이 안되었습니다, 인증이 요구됩니다.
+  - 403 Forbidden : 인증이 되어도, 접근 권한이 없습니다.
+  - 404 Not Found : 요청받은 리소스를 찾을 수 없습니다.
+  - 405 Method Not Allowed : 서버에서 허용되지 않는 Method를 사용했습니다.
+  - 411 Length Required : Request Header의 __Context-Length__ 항목의 부재입니다.
+  - 414 URI Too Long : URI의 길이가 너무 깁니다.
+  - 429 Too many request : 사용자가 너무 많은 요청을 보냈습니다. __Rate Limiting__  
+- 500번 영역
+  - 500 Internal Server Error : 이 서버는 처리 방법을 모릅니다.
+  - 501 Not Implemented : 서버에서 지원하지 않는 요청 방식입니다. 서버는 필수적으로 GET, HEAD 메소드를 사용합니다.
+  - 502 Bad Gateway : 게이트웨이로 작업하는 동안, 잘못된 Response를 수신했습니다.
+  - 503 Service Unavailable : 서버가 요청을 처리할 준비가 되지 않았습니다.
+  - 505 HTTP Version Not Supported
