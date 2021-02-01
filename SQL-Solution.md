@@ -1,5 +1,6 @@
 # SQL Injection solution
 ---
+`https://dreamhack.io/wargame/challenges/24/`
 >아주 간단한 _Query Injection_ 공격에 대한 실습이다.  
 
 문제의 코드를 뜯어 보면 `FLAG`를 얻기 위해서는 `admin`의 아이디로 로그인 해야 함을 알 수 있다.  
