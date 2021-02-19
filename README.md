@@ -19,6 +19,11 @@ __It's my Web-Hacking-Study with DREAMHACK!__
   - Language Specific Vulnerability
   - Misconfiguration
 - Client-Side Advanced
+  - XSS
+  - CSP
+  - CSRF
+  - CORS
+  - Exploit Techniques
 - Server-Side Advaced - SQL Injection
 - Server-Side Advanced - NoSQL
 - Server-Side Advanced - Command Injection
